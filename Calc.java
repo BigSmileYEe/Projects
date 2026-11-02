@@ -1,17 +1,33 @@
+import java.util.Scanner;
+
 public class Calc
 {
-    // private numbers for calculations
+    // Private variables
     private double num1;
     private double num2;
 
-    // default constructor
+    // Default constructor
     public Calc()
     {
         num1 = 0;
         num2 = 0;
     }
 
-    // set and get the first number
+    // Get a valid number from the user
+    public double readNumber(Scanner scan, String message)
+    {
+        System.out.println(message);
+
+        while (!scan.hasNextDouble())
+        {
+            System.out.println("Invalid input. Please enter a number:");
+            scan.next();
+        }
+
+        return scan.nextDouble();
+    }
+
+    // Set and get the first number
     public void setNum1(double newNum1)
     {
         num1 = newNum1;
@@ -22,7 +38,7 @@ public class Calc
         return num1;
     }
 
-    // set and get the second number
+    // Set and get the second number
     public void setNum2(double newNum2)
     {
         num2 = newNum2;
@@ -33,7 +49,7 @@ public class Calc
         return num2;
     }
 
-    // calculator methods
+    // Calculator methods
     public double add()
     {
         return num1 + num2;
@@ -54,7 +70,7 @@ public class Calc
         return num1 / num2;
     }
 
-    // show the stored numbers
+    // Display the stored numbers
     public String toString()
     {
         return "Displaying private data fields using toString():\n"
