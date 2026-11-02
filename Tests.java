@@ -1,19 +1,71 @@
+import java.util.Scanner;
+
 public class Tests
 {
-    public static void main(String[] args)
+    // rivate variables
+    private double ave;
+    private int count;
+    private int score;
+
+    // default constructor
+    public Tests()
     {
-        // declares the three test scores
-        double test1 = 88.2;
-        double test2 = 78.9;
-        double test3 = 97.6;
+        ave = 0;
+        count = 0;
+        score = 0;
+    }
 
-        //calculate the average of the test scores
-        double average = (test1 + test2 + test3) / 3;
+    // get the average
+    public double getAve()
+    {
+        return ave;
+    }
 
-        // display the test scores and average
-        System.out.println("Test score 1:  " + test1);
-        System.out.println("Test score 2:  " + test2);
-        System.out.println("Test score 3:  " + test3);
-        System.out.printf("The average of 3 test scores is:  %.2f%n", average);
+    // get the number of scores
+    public int getCount()
+    {
+        return count;
+    }
+
+    // gget the test score
+    public int getScore()
+    {
+        return score;
+    }
+
+    // set the test score
+    public void setScore(int newScore)
+    {
+        score = newScore;
+    }
+
+    // calculate the average of the test scores
+    public void getAverage()
+    {
+        Scanner input = new Scanner(System.in);
+        double sum = 0;
+        count = 0;
+
+        System.out.println("Enter a test score (-1 to quit):");
+        score = input.nextInt();
+
+        while (score != -1)
+        {
+            sum += score;
+            count++;
+
+            System.out.println("Enter a test score (-1 to quit):");
+            score = input.nextInt();
+        }
+
+        ave = sum / count;
+    }
+
+    // display the average
+    public String toString()
+    {
+        return "The average of the " + count
+            + " scores entered is "
+            + String.format("%.2f", ave) + ".";
     }
 }
