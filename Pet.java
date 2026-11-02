@@ -1,4 +1,3 @@
-
 public class Pet
 {
     // private pet information
